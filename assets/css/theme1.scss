@@ -1,0 +1,64 @@
+html{
+    font-family: "Nunito";
+    padding: 0;
+    margin: 0;
+    *{
+        padding: 0;
+        margin: 0;
+    }
+}
+h1{
+    text-align: center;
+    padding-top: 50px;
+    display: block;
+}
+#bg1{
+    width: 100%;
+    height: 100vh;
+    background: #97b8f5;
+    h1{
+        color: white;
+    }
+}
+
+#bg2{
+    width: 100%;
+    height: 100vh;
+    
+}
+
+#bg3{
+    width: 100%;
+    height: 100vh;
+    
+}
+
+#bg4{
+    width: 100%;
+    height: 100vh;
+    .trait{
+        width: 20px;
+        height: 60px;
+        background: #015980;
+        position: absolute;
+        display: block;
+        transform: skew(-20deg, -20deg) rotate(20deg);
+        top:0;
+        border-radius: 5px;
+        &:nth-of-type(3n){
+            width: 30px;
+            height: 90px;
+            background: #014066;
+        }
+        &:nth-of-type(3n+1){
+            width: 40px;
+            height: 120px;
+            background: #00d4ff;
+        }
+        &:nth-of-type(3n+2){
+            width: 5px;
+            height: 15px;
+            background: #017ba3;
+        }
+    }
+}

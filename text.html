@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Animated background</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/animatedBg.css">
+    <link rel="stylesheet" href="assets/css/theme1.css">
+</head>
+
+
+<body>
+
+
+    <div id="main">
+
+        <div id="bg1">
+            <div class="content">
+                <h1>Backouground animé 1</h1>
+            </div>
+        </div>
+
+        <div id="bg2">
+            <div class="content">
+                <h1>Backouground animé 2</h1>
+            </div>
+        </div>
+        <div id="bg3" data-colors="{#4158D0, #C850C0, #FFCC70, #FBAB7E, #FC00FF}">
+       <div class="content">
+           <h1>Backouground animé 3</h1>
+       </div>
+   </div>
+    
+</div>
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="assets/js/morphsvg.js"></script>
+    <script>
+        //basic gradient demo using webkit gradient + ColorPropsPlugin
+var iOS = /iPad|iPhone|iPod/.test(navigator.platform),
+    isChrome_iOS = false;
+
+var isChromium = window.chrome,
+    vendorName = window.navigator.vendor,
+    isOpera = window.navigator.userAgent.indexOf("OPR") > -1,
+    isChrome = false;
+if(isChromium !== null && isChromium !== undefined && vendorName === "Google Inc." && isOpera == false) {
+   // is Google chrome on iOS
+   //if(iOS){
+     //isChrome_iOS = true;
+   //} 
+  isChrome = true;
+}
+
+//create an object to store initial color values
+var colors = {top:"blue", bottom:"yellow"};
+
+//create a paused tween
+//use ColorPropsPlugin to tween the top and bottom colors
+var tween = TweenMax.to(colors, 1, {colorProps:{top:"red", bottom:"yellow"}, onUpdate:colorize, onUpdateParams:["#bg1"], duration:4});
+
+//var tween = TweenMax.to("#box", 1, {backgroundImage: "linear-gradient(to top,#CC0000,#F3F30B)", paused:true});
+
+$("#bg1").hover(over, out);
+
+function over() {
+  tween.play();
+};
+
+function out() {
+  tween.reverse();
+}
+
+function colorize(element) {
+  //apply the colors to the element
+  if(isChrome){
+    // used to be this
+    TweenLite.set(element, {backgroundImage:"-webkit-linear-gradient(top," + colors.top + ", " + colors.bottom + ")"});
+    //TweenLite.set(element, {background:"-webkit-linear-gradient(top," + colors.top + ", " + colors.bottom + ")"});
+  } else {
+    TweenLite.set(element, {background:"linear-gradient(to top," + colors.top + ", " + colors.bottom + ")"});
+  }
+  //console.log(colors.right);
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animated background</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="assets/css/animatedBg.css">
+    <link rel="stylesheet" href="assets/css/theme1.css">
+</head>
+
+
+<body>
+   
+   
+<div id="main">
+   
+   <div id="bg1">
+       <div class="content">
+           <h1>Backouground animé 1</h1>
+           <p>Formes et couleurs customisables, images, rotations des éléments possible</p>
+       </div>
+   </div>
+   
+   <div id="bg2">
+       <div class="content">
+           <h1>Backouground animé 2</h1>
+           <p>Element randomisés en Blur, basé sur un design Dribble : <a href="https://dribbble.com/shots/12690945-Blurr-Series-32k-Followers" target="_blank">Voir le Dribble</a></p>
+       </div>
+   </div>
+    <div id="bg3" data-colors="{#4158D0, #C850C0, #FFCC70, #FBAB7E, #FC00FF}">
+       <div class="content">
+           <h1>Backouground animé 3</h1>
+           <p>Fond en dégradé changeant, couleur customisables</p>
+       </div>
+   </div>
+   
+   <div id="bg4">
+       <div class="content">
+           <h1>Backouground animé 4</h1>
+           <p>Fond en dégradé changeant, couleur customisables</p>
+       </div>
+   </div>
+    
+</div>
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="assets/js/morphsvg.js"></script>
+    <script src="assets/js/animatedBg.js"></script>
+    <script>
+        var slider = new animatedBg({ 
+            element: '#bg1',
+            style:'bulles'
+        });
+
+        var slider2 = new animatedBg({ 
+            element: '#bg2',
+            style:'blur',
+            quantity: 5
+        });
+        var slider3 = new animatedBg({ 
+            element: '#bg3',
+            style:'gradient'
+        });
+        var slider4 = new animatedBg({ 
+            element: '#bg4',
+            style:'traits',
+            quantity: 380
+        });
+    </script>
+</body>
+</html>
